@@ -1,8 +1,7 @@
 """
 datasetESAFE_controller package
-~~~~~~~~~~~~~~~~~~~~~~~
 
-ESAFE 데이터셋 관리를 위한 컨트롤러 모듈
+A package for managing and processing ESAFE dataset files.
 """
 
 __version__ = '0.1.0'
