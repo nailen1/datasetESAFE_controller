@@ -5,11 +5,11 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "pandas>=2.0.0",
-        "openpyxl>=3.1.0",
-        "xlrd>=2.0.0",
+        "pandas",
+        "xlrd",
+        "shining_pebbles>=0.2.61",
     ],
-    author="ESAFE Team",
-    description="ESAFE 데이터셋 관리를 위한 컨트롤러 모듈",
+    author="nailen",
+    description="A package for managing and processing ESAFE dataset files",
     python_requires=">=3.8",
 )
