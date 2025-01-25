@@ -34,24 +34,3 @@ def open_excel_as_df(file_path: Union[str, Path]) -> pd.DataFrame:
             return pd.read_excel(file_path, engine='xlrd')
     except Exception as e:
         raise ValueError(f"Failed to read Excel file: {file_path}") from e
-
-
-def rename_file(old_path: Union[str, Path], new_path: Union[str, Path]) -> None:
-    """
-    Renames a file from old path to new path.
-
-    Args:
-        old_path (Union[str, Path]): Current file path
-        new_path (Union[str, Path]): New file path
-
-    Raises:
-        FileNotFoundError: If the source file does not exist
-        OSError: If the file cannot be renamed
-    """
-    old_path = Path(old_path)
-    new_path = Path(new_path)
-    
-    if not old_path.exists():
-        raise FileNotFoundError(f"File not found: {old_path}")
-    
-    old_path.rename(new_path)
