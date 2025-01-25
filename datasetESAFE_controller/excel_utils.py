@@ -3,6 +3,7 @@ Excel 파일 처리를 위한 유틸리티 함수들
 """
 
 import pandas as pd
+import warnings
 from pathlib import Path
 from typing import Union
 
@@ -26,7 +27,10 @@ def open_excel_as_df(filepath: Union[str, Path]) -> pd.DataFrame:
         raise FileNotFoundError(f"File not found: {filepath}")
     
     try:
-        # xls 파일은 xlrd 엔진을 사용
-        return pd.read_excel(filepath, engine='xlrd')
+        # Suppress xlrd sector size warning
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            # xls 파일은 xlrd 엔진을 사용
+            return pd.read_excel(filepath, engine='xlrd')
     except Exception as e:
         raise ValueError(f"Failed to read Excel file: {filepath}") from e
